@@ -1,0 +1,14 @@
+[Unit]
+Description=accentpop - macOS-style press-and-hold accent picker
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/share/accentpop/venv/bin/python %h/.local/share/accentpop/accentpop.py
+ExecStopPost=/usr/bin/xset r on
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

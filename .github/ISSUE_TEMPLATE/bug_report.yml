@@ -1,0 +1,85 @@
+name: Bug report
+description: Something does not work as described in the README.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Input handling depends on the environment, so the
+        fields below are required. Logs never contain what you typed, but please
+        read them before pasting.
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool
+      options:
+        - accentpop
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+      placeholder: |
+        1. Focused the message box in ...
+        2. Held `n` for one second
+        3. Expected the popup under the caret, it appeared at the top-left corner
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution and version
+      placeholder: Ubuntu 24.04
+    validations:
+      required: true
+  - type: input
+    id: desktop
+    attributes:
+      label: Desktop environment and version
+      placeholder: GNOME 46
+    validations:
+      required: true
+  - type: dropdown
+    id: session
+    attributes:
+      label: Session type
+      description: Output of `echo $XDG_SESSION_TYPE`
+      options:
+        - x11
+        - wayland
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: input-method
+    attributes:
+      label: Input method
+      options:
+        - IBus
+        - Fcitx
+        - None
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: Application and how it was installed
+      placeholder: ZapZap 6.0 (Flatpak), Chrome 128 (deb), GNOME Text Editor (Snap)
+    validations:
+      required: true
+  - type: input
+    id: layout
+    attributes:
+      label: Keyboard layout
+      description: Output of `setxkbmap -query`
+      placeholder: "layout: us, variant: intl"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Output of `journalctl --user -u accentpop -n 50 --no-pager`
+      render: text

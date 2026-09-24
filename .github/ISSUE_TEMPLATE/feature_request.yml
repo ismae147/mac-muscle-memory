@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an improvement or a new macOS-style tool.
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want to do?
+      description: The habit or workflow you miss, in your own words.
+      placeholder: On macOS I can ..., on Linux I have to ...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behaviour
+      description: How it should work. Mention the macOS behaviour if it applies.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you tried
+      description: Existing settings, extensions or tools, and why they fall short.
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Design rules
+      description: See the Design rules section of the README.
+      options:
+        - label: This can work without root, without system packages, and reversibly.
